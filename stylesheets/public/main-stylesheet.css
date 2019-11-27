@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-image: url(/assets/background-westeros.png);
+  background-position: center;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  background-size: inherit;
+}
+
+/*# sourceMappingURL=main-stylesheet.css.map */
