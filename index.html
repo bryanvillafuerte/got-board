@@ -7,14 +7,70 @@
     <title>GoT Board Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/public/main-stylesheet.css">
-    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://zimjs.org/cdn/1.2.3/createjs_min.js"></script>
+    <script src="https://zimjs.org/cdn/10.7.0/zim.js"></script>
+    <script src="https://zimjs.org/cdn/easystar-0.4.3.min.js"></script>
+    <script src="https://zimjs.org/cdn/game_2.2.js"></script>
     <script src="/scripts/script.js"></script>
 </head>
-<body onload="init();">
-    <h1>Hello World</h1>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <!-- Credits to HBO's Game of Thrones Youtube Channel for the video at https://youtu.be/TZE9gVF1QbA -->
+        <video id="GotCredits" autoplay muted loop poster="https://dummyimage.com/900x400/000/fff" src="assets/Opening Credits _ Game of Thrones _ Season 8 (HBO).mp4" type="video/mp4"></video>
+        <div class="container">
+            <img class="logo" src="/assets/GoT-logo.png" alt="Game of Thrones Logo">
+            <h1 class="display-4">The Quest to the Iron Throne</h1>
+            <p class="lead">Conquer the Land of Westeros and race your way to take your rightful place on the Iron Throne</p>
+        </div>
+    </div>
 
-    <canvas id="demoCanvas" width="500" height="200"></canvas>
+    <div class="container-fluid">
+        <div class="container">
+            <h2>CHOOSE YOUR HOUSE</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="assets/stark.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="assets/targaryen.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="assets/lannister.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/assets/greyjoy.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg">PLAY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <small>Copyright © 2019 • Bryan Luis Villafuerte • Semester Project</small>
+    </footer>
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -1,11 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Calistoga|Solway&display=swap");
 body {
-  margin: 0;
+  font-family: "Solway", serif;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: "Calistoga", cursive;
+}
+
+body {
+  background-color: #212529;
+  color: #ffffff;
+}
+
+.jumbotron {
+  position: relative;
   overflow: hidden;
-  background-image: url(/assets/background-westeros.png);
-  background-position: center;
-  background-position-y: 0;
-  background-repeat: no-repeat;
-  background-size: inherit;
+  background-color: #000000;
+  height: 60vh;
+  margin-bottom: 0;
+}
+.jumbotron video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /*  object-fit is not supported on IE  */
+  object-fit: cover;
+  opacity: 0.5;
+}
+.jumbotron .container {
+  z-index: 2;
+  position: relative;
+}
+.jumbotron .container h1 {
+  text-align: center;
+  color: #DC832E;
+  background: linear-gradient(to right, #DC832E 0%, #BF2424 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.jumbotron .container .lead {
+  text-align: center;
+}
+.jumbotron .container .logo {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.container--house {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.container-fluid {
+  background: black;
+  background: linear-gradient(320deg, #000000 0%, #212529 50%, #2b353e 100%);
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+.container-fluid .container h2 {
+  color: #DC832E;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.container-fluid .container .card {
+  background-color: #212529;
+  margin-bottom: 10px;
+  border: 1px solid #2b353e;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px #303030;
+}
+.container-fluid .container .btn-lg {
+  justify-content: center;
+  width: 250px;
+  margin-top: 30px;
+}
+
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #000000;
 }
 
 /*# sourceMappingURL=main-stylesheet.css.map */
