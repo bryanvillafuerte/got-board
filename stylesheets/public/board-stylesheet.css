@@ -21,13 +21,26 @@ body {
   color: #ffffff;
 }
 
+.nav {
+  background-color: #000000;
+}
+
 .container-fluid {
   padding-top: 50px;
   padding-bottom: 50px;
+  background-image: url(/assets/background-westeros.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .container-fluid h1 {
   margin-bottom: 30px;
   text-align: center;
+  color: #DC832E;
+  background: linear-gradient(to right, #DC832E 0%, #BF2424 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonGlow 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .container-fluid #boardContainer1, .container-fluid #boardContainer2, .container-fluid #boardContainer3, .container-fluid #boardContainer4, .container-fluid #boardContainer5 {
   display: flex;
@@ -46,6 +59,35 @@ body {
   width: 150px;
   height: 100px;
   background-color: black;
+}
+.container-fluid #diceRoller {
+  margin-top: 50px;
+}
+.container-fluid #diceRoller .diceContainer {
+  width: 150px;
+  height: 150px;
+  color: #ffffff;
+  background-color: #212529;
+  border: solid 5px #DC832E;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.container-fluid #diceRoller .diceContainer p {
+  font-size: 54px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+}
+.container-fluid #diceRoller .btn-lg {
+  color: rgba(255, 255, 255, 0.8);
+  width: 250px;
+  margin-top: 30px;
+  transition: all 0.2s ease-in-out;
+}
+.container-fluid #diceRoller .btn-lg:hover {
+  color: white;
+  box-shadow: 0 5px 15px rgba(109, 180, 255, 0.4);
 }
 
 footer {

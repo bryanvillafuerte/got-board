@@ -7,13 +7,26 @@ body {
     color: $lightText;
 }
 
+.nav {
+    background-color: $black;
+}
+
 .container-fluid {
     padding-top: 50px;
     padding-bottom: 50px;
+    background-image: url(/assets/background-westeros.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     h1 {
         margin-bottom: 30px;
         text-align: center;
+        color: $orange;
+        background: linear-gradient(to right, $orange 0%, $red 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: neonGlow 2s infinite alternate $easeInOutQuad;
     }
 
     #boardContainer1, #boardContainer2, #boardContainer3, #boardContainer4, #boardContainer5 {
@@ -35,6 +48,40 @@ body {
             width: 150px;
             height: 100px;
             background-color: black;
+        }
+    }
+
+    #diceRoller {
+        margin-top: 50px;
+
+        .diceContainer {
+            width: 150px;
+            height: 150px;
+            color: $lightText;
+            background-color: $backgroundColorMain;
+            border: solid 5px $orange;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+
+            p {
+                font-size: 54px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 150px;
+            }
+        }
+
+        .btn-lg {
+            color: rgba(255, 255, 255, .8);
+            width: 250px;
+            margin-top: 30px;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                color: rgba(255, 255, 255, 1);
+                box-shadow: 0 5px 15px rgba(109, 180, 255, 0.4);
+            }
         }
     }
 }

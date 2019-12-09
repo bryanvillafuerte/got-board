@@ -72,8 +72,11 @@ body {
 }
 
 .container-fluid {
-  background: black;
-  background: linear-gradient(320deg, #000000 0%, #212529 50%, #2b353e 100%);
+  background-color: #212529;
+  background-image: url(/assets/night-king-background.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   padding-top: 100px;
   padding-bottom: 150px;
 }
