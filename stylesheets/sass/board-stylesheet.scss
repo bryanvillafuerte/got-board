@@ -7,16 +7,39 @@ body {
     color: $lightText;
 }
 
-.board-tile {
-    width: 100px;
-    height: 100px;
-    background-color: darkgray;
+.container-fluid {
+    padding-top: 50px;
+    padding-bottom: 50px;
 
-    h2 {
+    h1 {
+        margin-bottom: 30px;
         text-align: center;
-        line-height: 100px;
+    }
+
+    #boardContainer1, #boardContainer2, #boardContainer3, #boardContainer4, #boardContainer5 {
+        display: flex;
+        justify-content: center;
+    
+        .board-tile {
+            width: 150px;
+            height: 100px;
+            background-color: darkgray;
+        
+            h2 {
+                text-align: center;
+                line-height: 100px;
+            }
+        }
+        
+        .board-tile-Odd {
+            width: 150px;
+            height: 100px;
+            background-color: black;
+        }
     }
 }
+
+
 
 footer {
     padding-top: 10px;

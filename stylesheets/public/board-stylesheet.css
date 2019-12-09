@@ -21,14 +21,31 @@ body {
   color: #ffffff;
 }
 
-.board-tile {
-  width: 100px;
+.container-fluid {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.container-fluid h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.container-fluid #boardContainer1, .container-fluid #boardContainer2, .container-fluid #boardContainer3, .container-fluid #boardContainer4, .container-fluid #boardContainer5 {
+  display: flex;
+  justify-content: center;
+}
+.container-fluid #boardContainer1 .board-tile, .container-fluid #boardContainer2 .board-tile, .container-fluid #boardContainer3 .board-tile, .container-fluid #boardContainer4 .board-tile, .container-fluid #boardContainer5 .board-tile {
+  width: 150px;
   height: 100px;
   background-color: darkgray;
 }
-.board-tile h2 {
+.container-fluid #boardContainer1 .board-tile h2, .container-fluid #boardContainer2 .board-tile h2, .container-fluid #boardContainer3 .board-tile h2, .container-fluid #boardContainer4 .board-tile h2, .container-fluid #boardContainer5 .board-tile h2 {
   text-align: center;
   line-height: 100px;
+}
+.container-fluid #boardContainer1 .board-tile-Odd, .container-fluid #boardContainer2 .board-tile-Odd, .container-fluid #boardContainer3 .board-tile-Odd, .container-fluid #boardContainer4 .board-tile-Odd, .container-fluid #boardContainer5 .board-tile-Odd {
+  width: 150px;
+  height: 100px;
+  background-color: black;
 }
 
 footer {
