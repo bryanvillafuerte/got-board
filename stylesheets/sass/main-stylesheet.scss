@@ -1,5 +1,6 @@
 @import "fonts";
 @import "colors";
+@import "mixins";
 
 body {
     background-color: $backgroundColorMain;
@@ -10,7 +11,7 @@ body {
     position: relative;
     overflow: hidden;
     background-color: $black;
-    height: 60vh;
+    height: auto;
     margin-bottom: 0;
 
     video {
@@ -21,7 +22,7 @@ body {
         height:100%;
         /*  object-fit is not supported on IE  */
         object-fit: cover;
-        opacity:0.5;
+        opacity:0.4;
     }
 
     .container {
@@ -30,14 +31,23 @@ body {
 
         h1 {
             text-align: center;
-            color: #DC832E;
+            color: $orange;
             background: linear-gradient(to right, $orange 0%, $red 100%);
 	        -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: neonGlow 2s infinite alternate $easeInOutQuad;
         }
 
         .lead {
             text-align: center;
+        }
+
+        .quote {
+            font-style: italic;
+        }
+
+        .author {
+            text-align: right;
         }
 
         .logo {
@@ -77,8 +87,15 @@ body {
 
         .btn-lg {
             justify-content: center;
+            color: rgba(255, 255, 255, .8);
             width: 250px;
             margin-top: 30px;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                color: rgba(255, 255, 255, 1);
+                box-shadow: 0 5px 15px rgba(109, 180, 255, 0.4);
+            }
         }
     }
 }

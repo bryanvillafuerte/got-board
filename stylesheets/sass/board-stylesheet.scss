@@ -1,0 +1,26 @@
+@import "fonts";
+@import "colors";
+@import "mixins";
+
+body {
+    background-color: $backgroundColorMain;
+    color: $lightText;
+}
+
+.board-tile {
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+
+    h2 {
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: $black;
+}
