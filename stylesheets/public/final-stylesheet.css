@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Calistoga|Solway&display=swap");
+body {
+  font-family: "Solway", serif;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: "Calistoga", cursive;
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 0.5vw #DC832E, 0 0 1.5vw #BF2424, 0 0 5vw #BF2424, 0 0 5vw #BF2424, 0 0 0.2vw #DC832E, 0.25vw 0.25vw 0.05vw #806914;
+    color: #DC832E;
+  }
+  50% {
+    text-shadow: 0 0 0.25vw #800E0B, 0 0 0.75vw #800E0B, 0 0 2.5vw #800E0B, 0 0 2.5vw #800E0B, 0 0 0.1vw #800E0B, 0.25vw 0.25vw 0.05vw #40340A;
+    color: #806914;
+  }
+}
+body {
+  background-color: #212529;
+  color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container-fluid {
+  height: 100vh;
+}
+
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #000000;
+}
+
+/*# sourceMappingURL=final-stylesheet.css.map */

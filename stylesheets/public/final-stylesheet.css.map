@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../sass/fonts.scss","../sass/mixins.scss","../sass/final-stylesheet.scss","../sass/colors.scss"],"names":[],"mappings":"AAAQ;AAER;EACI;;AAEA;EACI;;;ACJR;EACI;IAEE;IACA;;EAEF;IACE;IACA;;;ACNN;EACI,kBCLkB;EDMlB,OCLQ;;;ADQZ;EACI;;;AAGJ;EACI;;;AAGJ;EACI;EACA;EACA;EACA,kBCnBI","file":"final-stylesheet.css"}
