@@ -7,12 +7,37 @@ body {
     color: $lightText;
 }
 
-h1 {
-    text-align: center;
-}
-
 .container-fluid {
-    height: 100vh;
+    height: 95vh;
+    background-image: url(/assets/night-king-background2.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+
+    h1 {
+        text-align: right;
+        padding-top: 100px;
+        padding-right: 20px;
+    }
+
+    .lead {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        text-align: right;
+    }
+
+    .btn-lg {
+        justify-content: center;
+        color: rgba(255, 255, 255, .8);
+        width: 250px;
+        margin-top: 30px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+            box-shadow: 0 5px 15px rgba(109, 180, 255, 0.4);
+        }
+    }
 }
 
 footer {
