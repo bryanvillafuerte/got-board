@@ -29,14 +29,14 @@ body {
   background-position: center;
 }
 .container-fluid h1 {
-  text-align: right;
+  text-align: center;
   padding-top: 100px;
   padding-right: 20px;
 }
 .container-fluid .lead {
   margin-top: 100px;
   margin-bottom: 100px;
-  text-align: right;
+  text-align: center;
 }
 .container-fluid .btn-lg {
   justify-content: center;

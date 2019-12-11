@@ -60,6 +60,9 @@ body {
   height: 100px;
   background-color: black;
 }
+.container-fluid #characterToken img {
+  height: 150px;
+}
 .container-fluid #diceRoller {
   margin-top: 50px;
 }
