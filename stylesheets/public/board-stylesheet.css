@@ -49,7 +49,10 @@ body {
 .container-fluid #boardContainer1 .board-tile, .container-fluid #boardContainer2 .board-tile, .container-fluid #boardContainer3 .board-tile, .container-fluid #boardContainer4 .board-tile, .container-fluid #boardContainer5 .board-tile {
   width: 150px;
   height: 100px;
-  background-color: darkgray;
+  background-color: #9F9FA6;
+  background-image: url(/assets/tile-even.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .container-fluid #boardContainer1 .board-tile h2, .container-fluid #boardContainer2 .board-tile h2, .container-fluid #boardContainer3 .board-tile h2, .container-fluid #boardContainer4 .board-tile h2, .container-fluid #boardContainer5 .board-tile h2 {
   text-align: center;
@@ -58,7 +61,10 @@ body {
 .container-fluid #boardContainer1 .board-tile-Odd, .container-fluid #boardContainer2 .board-tile-Odd, .container-fluid #boardContainer3 .board-tile-Odd, .container-fluid #boardContainer4 .board-tile-Odd, .container-fluid #boardContainer5 .board-tile-Odd {
   width: 150px;
   height: 100px;
-  background-color: black;
+  background-color: #262626;
+  background-image: url(/assets/tile-odd.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .container-fluid #characterToken img {
   height: 150px;

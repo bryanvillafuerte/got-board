@@ -36,7 +36,10 @@ body {
         .board-tile {
             width: 150px;
             height: 100px;
-            background-color: darkgray;
+            background-color: $lightGrey;
+            background-image: url(/assets/tile-even.png);
+            background-size: contain;
+            background-repeat: no-repeat;
         
             h2 {
                 text-align: center;
@@ -47,7 +50,10 @@ body {
         .board-tile-Odd {
             width: 150px;
             height: 100px;
-            background-color: black;
+            background-color: $darkerGrey;
+            background-image: url(/assets/tile-odd.png);
+            background-size: contain;
+            background-repeat: no-repeat;
         }
     }
 
