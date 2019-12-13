@@ -26,7 +26,7 @@ const renderCharacters = function (characters) {
         <div class="card">
             <img 
                 style="cursor: pointer;"
-                src="assets/placeholder-400-600.jpg" 
+                src="${character.image}" 
                 class="card-img-top" alt="character-image" 
                 data-char-name="${character.name}">
             <div class="card-body">
