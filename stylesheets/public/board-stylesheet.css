@@ -67,7 +67,7 @@ body {
   background-repeat: no-repeat;
 }
 .container-fluid #characterToken img {
-  height: 150px;
+  height: 100px;
 }
 .container-fluid #diceRoller {
   margin-top: 50px;
