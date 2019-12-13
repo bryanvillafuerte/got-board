@@ -1,10 +1,23 @@
 'use strict';
+
+/*
+GLOBAL VARIABLES
+ */
 const characterURI = 'https://anapioficeandfire.com/api/characters';
 const characterIds = [583, 271, 148, 957, 213, 529, 954, 1052, 238, 743];
 
-let characterPromiseArray = [];
-let charactersArray = [];
+var characterPromiseArray = [];
+var charactersArray = [];
 
+/*
+DOM VARIABLES
+ */
+const playNow = document.querySelector('#playnow');
+
+
+/*
+CLASS DEFINITIONS
+ */
 class Character {
     name;
     gender;
@@ -16,30 +29,86 @@ class Character {
     }
 }
 
+/*
+HELPER FUNCTIONS
+ */
 const fetchCharacterById = function(characterId, charURI) {
-
     const uri = charURI.substring(0) + '/' + characterId.toString();
     return fetch(uri);
 };
 
-
-const main = async function() {
-    console.log('===== RUNNING MAIN ======');
-
-    characterIds.forEach( item => {
-        characterPromiseArray.push(fetchCharacterById(item, characterURI));
+const createPromises = function(idsArray) {
+    const tmpPromises = [];
+    idsArray.forEach( item => {
+        tmpPromises.push(fetchCharacterById(item, characterURI));
     });
+    return tmpPromises;
+};
 
-    let values = await Promise.all(characterPromiseArray);
+const resolveAllPromises = async function(arrayOfPromises) {
+    let characters = [];
+    let values = await Promise.all(arrayOfPromises);
     values = values.map( res => res.json());
 
-    values = await Promise.all(values);
-    values.forEach( function(char) {
-        charactersArray.push(
-            new Character(char.name, char.gender, char.titles)
-        );
+    return Promise.all(values).then( allChar => {
+        allChar.forEach( function(char) {
+            characters.push(
+                new Character(char.name, char.gender, char.titles)
+            );
+        });
+        return characters;
     });
-    console.log(charactersArray);
+};
+
+const chooseCharacter = function(character) {
+    LocalStorage.set(StorageKeys.CHARACTER, character);
+};
+
+const clearStorage = function() {
+    LocalStorage.clear();
+};
+
+
+const addListeners = function () {
+    console.log('==== ADDING LISTENERS ====');
+    characterRow.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.nodeName.toLowerCase() === 'img') {
+            const name = target.getAttribute('data-char-name');
+            const chosenChar = findCharacter(name, charactersArray);
+            chooseCharacter(chosenChar);
+        }
+    });
+
+    playNow.addEventListener('click', (event) => {
+        const char = LocalStorage.get(StorageKeys.CHARACTER);
+        if (!char) {
+            alert('PLEASE SELECT A CHARACTER BEFORE PLAYING!');
+            return;
+        }
+
+        if (confirm(`You chose ${char.name}. Do you want to proceed?`)) {
+            location.href = 'board.html';
+
+        } else {
+            console.log('Player canceled');
+        }
+    });
+};
+
+/*
+==========================
+========== MAIN ==========
+==========================
+ */
+const main = async function() {
+    console.log('===== RUNNING MAIN ======');
+    clearStorage();
+    characterPromiseArray = createPromises(characterIds);
+    charactersArray = await resolveAllPromises(characterPromiseArray);
+
+    renderCharacters(charactersArray);
+    addListeners();
 };
 
 
