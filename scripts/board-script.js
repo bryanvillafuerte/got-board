@@ -18,6 +18,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
+            boardTile.setAttribute("id", numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -43,6 +44,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
+            boardTile.setAttribute("id", numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -68,6 +70,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
+            boardTile.setAttribute("id", numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -93,6 +96,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
+            boardTile.setAttribute("id", numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -118,6 +122,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
+            boardTile.setAttribute("id", numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
