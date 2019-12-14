@@ -98,12 +98,16 @@ body {
                 color: $orange;
             }
 
-            &:active {
-                border: 2px solid $red;
-            }
-
             &:hover {
                 cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow:
+                0 0 3px 1px #fff,
+                0 0 6px 3px $red,
+                0 0 9px 5px $orange;
             }
         }
 

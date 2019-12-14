@@ -100,11 +100,12 @@ body {
 .container-fluid .container .card .card-title {
   color: #DC832E;
 }
-.container-fluid .container .card:active {
-  border: 2px solid #BF2424;
-}
 .container-fluid .container .card:hover {
   cursor: pointer;
+}
+.container-fluid .container .card:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px #fff, 0 0 6px 3px #BF2424, 0 0 9px 5px #DC832E;
 }
 .container-fluid .container .btn-lg {
   justify-content: center;

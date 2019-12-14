@@ -23,7 +23,7 @@ const renderCharacters = function (characters) {
     characters.forEach(character => {
         characterRow.innerHTML += `
     <div class="col-md-3">
-        <div class="card h-100">
+        <div class="card h-100" tabindex="0">
             <img src="${character.image}" class="card-img-top" alt="character-image" data-char-name="${character.name}">
             <div class="card-body">
                 <h5 class="card-title">${character.name}</h5>
