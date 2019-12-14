@@ -140,3 +140,28 @@ function createBoard() {
 
 createBoard();
 
+/* Dice Rolloer */
+var dice1 = {
+    sides: 6,
+    roll: function () {
+      var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+      return randomNumber;
+    }
+}
+
+function printNumber(number) {
+    var placeholder = document.getElementById('diceNumber');
+    placeholder.innerHTML = number;
+}
+
+var button = document.getElementById('rollerButton');
+button.onclick = function() {
+    var result = dice1.roll();
+    printNumber(result);
+    printNumber(result);
+
+    var alert = document.getElementById("diceAlert")
+    alert.textContent = "You have rolled a " + result + "!";
+};
+
+  

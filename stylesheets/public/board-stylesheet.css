@@ -88,10 +88,13 @@ body {
   text-align: center;
   line-height: 150px;
 }
+.container-fluid #diceRoller #diceAlert {
+  margin-top: 20px;
+  color: #DC832E;
+}
 .container-fluid #diceRoller .btn-lg {
   color: rgba(255, 255, 255, 0.8);
   width: 250px;
-  margin-top: 30px;
   transition: all 0.2s ease-in-out;
 }
 .container-fluid #diceRoller .btn-lg:hover {
