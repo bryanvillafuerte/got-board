@@ -1,7 +1,7 @@
 /* The following functions are used to create board tiles and number them from 1-30 */
 function createBoard() {
     function createBoardTiles1() {
-        var numbers = [1,2,3,4,5,6]
+        var numbers = [25,26,27,28,29,30]
         var numberInsert = "";
         var i;
     
@@ -27,7 +27,7 @@ function createBoard() {
     }
 
     function createBoardTiles2() {
-        var numbers = [12,11,10,9,8,7]
+        var numbers = [24,23,22,21,20,19]
         var numberInsert = "";
         var i;
     
@@ -79,7 +79,7 @@ function createBoard() {
     }
 
     function createBoardTiles4() {
-        var numbers = [24,23,22,21,20,19]
+        var numbers = [12,11,10,9,8,7]
         var numberInsert = "";
         var i;
     
@@ -105,7 +105,7 @@ function createBoard() {
     }
 
     function createBoardTiles5() {
-        var numbers = [25,26,27,28,29,30]
+        var numbers = [1,2,3,4,5,6]
         var numberInsert = "";
         var i;
     
