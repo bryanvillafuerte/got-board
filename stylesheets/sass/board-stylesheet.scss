@@ -34,6 +34,7 @@ body {
         justify-content: center;
     
         .board-tile {
+            position: relative;
             width: 150px;
             height: 100px;
             background-color: $lightGrey;
@@ -45,6 +46,14 @@ body {
                 text-align: center;
                 line-height: 100px;
             }
+
+            img {
+                position: absolute;
+                top: 8px;
+                left: 2.3rem;
+                width: 5rem;
+            }
+
         }
         
         .board-tile-Odd {

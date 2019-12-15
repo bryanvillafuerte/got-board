@@ -2,6 +2,13 @@
 
 class StorageKeys {
     static CHARACTER = 'CHARACTER';
+    static CURRENT_BOARD_NUMBER = 'CURRENT_BOARD_NUMBER';
+    static PREVIOUS_BOARD_NUMBER = 'PREVIOUS_BOARD_NUMBER';
+    static DICE = 'DICE';
+}
+
+class ActionEvents {
+    static DICE_ROLL = 'DICE_ROLL';
 }
 
 class LocalStorage {
@@ -22,16 +29,6 @@ class LocalStorage {
 }
 
 
-// function LocalStorage() {}
-// LocalStorage.prototype.set = function(key, data) {
-//     const stringify = JSON.stringify(data);
-//     localStorage.setItem(key, stringify);
-// };
-// LocalStorage.prototype.clear = function() {
-//     localStorage.clear();
-// };
-
-
 class PubSub {
    cache;
 
@@ -50,7 +47,6 @@ class PubSub {
             this.cache[channel] = [];
         }
         this.cache[channel].push(callback);
-        console.log('cache', this.cache);
         return [channel, callback]
     }
     unsubscribe = function (handle) {
