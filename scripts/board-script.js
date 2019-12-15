@@ -1,3 +1,8 @@
+/*
+GLOBAL VARS
+ */
+const pubSub = PubSubInstance.getInstance();
+
 /* The following functions are used to create board tiles and number them from 1-30 */
 function createBoard() {
     function createBoardTiles1() {
@@ -10,7 +15,7 @@ function createBoard() {
     
             var boardTile = document.createElement("div");
             boardTile.setAttribute("class", "board-tile");
-    
+
             if (i % 2 === 0) {
                 boardTile.classList.add("board-tile-Odd");
             }
@@ -18,7 +23,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
-            boardTile.setAttribute("id", numberInsert);
+            boardTile.setAttribute("id", 'board-tile-' + numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -44,7 +49,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
-            boardTile.setAttribute("id", numberInsert);
+            boardTile.setAttribute("id", 'board-tile-' + numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -70,7 +75,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
-            boardTile.setAttribute("id", numberInsert);
+            boardTile.setAttribute("id", 'board-tile-' + numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -96,7 +101,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
-            boardTile.setAttribute("id", numberInsert);
+            boardTile.setAttribute("id", 'board-tile-' + numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -122,7 +127,7 @@ function createBoard() {
             numberInsert = numbers[i];
             var boardTileNumber = document.createElement("h2");
             boardTileNumber.textContent = numberInsert;
-            boardTile.setAttribute("id", numberInsert);
+            boardTile.setAttribute("id", 'board-tile-' + numberInsert);
     
             boardTile.appendChild(boardTileNumber);
     
@@ -138,7 +143,7 @@ function createBoard() {
     createBoardTiles5();
 }
 
-createBoard();
+
 
 /* Dice Rolloer */
 var dice1 = {
@@ -152,16 +157,68 @@ var dice1 = {
 function printNumber(number) {
     var placeholder = document.getElementById('diceNumber');
     placeholder.innerHTML = number;
+    LocalStorage.set(StorageKeys.DICE, number);
 }
 
 var button = document.getElementById('rollerButton');
 button.onclick = function() {
     var result = dice1.roll();
+    pubSub.publish(ActionEvents.DICE_ROLL, result);
     printNumber(result);
     printNumber(result);
 
     var alert = document.getElementById("diceAlert")
     alert.textContent = "You have rolled a " + result + "!";
+
 };
 
-  
+const saveBoardNumber = function(boardNumber, current) {
+    const curr = () => LocalStorage.set(StorageKeys.CURRENT_BOARD_NUMBER, boardNumber);
+    const prev = () => LocalStorage.set(StorageKeys.PREVIOUS_BOARD_NUMBER, boardNumber);
+    current ? curr() : prev();
+};
+
+const onMoveCharacterToken = function(dice) {
+    const currentBoardNumber = parseInt(LocalStorage.get(StorageKeys.CURRENT_BOARD_NUMBER));
+    const character = LocalStorage.get(StorageKeys.CHARACTER);
+    let tmpMove = dice + currentBoardNumber;
+
+    toMove = tmpMove >= 30 ? 30 : tmpMove;
+
+    // save current
+    saveBoardNumber(toMove, true);
+    // save previous
+    saveBoardNumber(currentBoardNumber, false);
+    // execute move
+    moveCharacterToken(character, currentBoardNumber, toMove);
+};
+
+const addListeners = function() {
+    pubSub.subscribe(ActionEvents.DICE_ROLL, onMoveCharacterToken);
+};
+
+const initValues = function() {
+    const currentBoardNumber = parseInt(LocalStorage.get(StorageKeys.CURRENT_BOARD_NUMBER));
+    if (!currentBoardNumber) {
+        saveBoardNumber(0, true);
+    }
+    const dice = parseInt(LocalStorage.get(StorageKeys.DICE));
+    if (dice) {
+        printNumber(dice);
+    }
+};
+
+const main = function () {
+    const character = LocalStorage.get(StorageKeys.CHARACTER);
+    createBoard();
+
+    initValues();
+    addListeners();
+    renderCharacterToken(character);
+
+};
+
+(function () {
+    main();
+})();
+

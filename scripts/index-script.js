@@ -1,22 +1,5 @@
 'use strict';
 
-/*
-GLOBAL VARIABLES
- */
-const characterURI = 'https://anapioficeandfire.com/api/characters';
-const characterIds = {
-    583: {id: 583, image: 'assets/card-jon-snow.jpg'},
-    271: {id: 271, image: 'assets/card-daenerys.jpg'},
-    148: {id: 148, image: 'assets/card-arya.jpg'},
-    957: {id: 957, image: 'assets/card-sansa.jpg'},
-    213: {id: 213, image: 'assets/card-bran.jpg'},
-    529: {id: 529, image: 'assets/card-jaime.jpg'},
-    954: {id: 954, image: 'assets/card-samwell.jpg'},
-    1052: {id: 1052, image: 'assets/card-tyrion.jpg'},
-    238: {id: 238, image: 'assets/card-cersei.jpg'},
-    743: {id: 743, image: 'assets/card-melisandre.jpg'},
-};
-
 var characterPromiseArray = [];
 var charactersArray = [];
 
@@ -34,11 +17,13 @@ class Character {
     gender;
     titles;
     image;
-    constructor(name, gender, titles, image) {
+    token;
+    constructor(name, gender, titles, image, token) {
         this.name = name;
         this.gender = gender;
         this.titles = titles;
         this.image = image;
+        this.token = token;
     }
 }
 
@@ -68,7 +53,7 @@ const resolveAllPromises = async function(arrayOfPromises) {
             const index = char.url.lastIndexOf('/');
             const charId = char.url.slice(index + 1);
             characters.push(
-                new Character(char.name, char.gender, char.titles, characterIds[charId].image)
+                new Character(char.name, char.gender, char.titles, characterIds[charId].image, characterIds[charId].token)
             );
         });
         return characters;
