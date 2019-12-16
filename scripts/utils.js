@@ -102,6 +102,12 @@ const removeCharacterToken = function(previous) {
         container.removeChild(image);
     }
 };
+
+const getNumberOfStepsBack = function(currentBoardNumber, dice) {
+    const stepsToGoal = 30 - currentBoardNumber;
+    const numberOfStepsBack = dice - stepsToGoal;
+    return 30 - numberOfStepsBack;
+};
 /*
 UTILS
  */

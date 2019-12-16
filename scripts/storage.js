@@ -9,6 +9,7 @@ class StorageKeys {
 
 class ActionEvents {
     static DICE_ROLL = 'DICE_ROLL';
+    static BACK_MOVE = 'BACK_MOVE';
 }
 
 class LocalStorage {
