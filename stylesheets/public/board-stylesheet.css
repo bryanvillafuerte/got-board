@@ -18,11 +18,14 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 }
 body {
   background-color: #212529;
-  color: #ffffff;
 }
 
 .nav {
   background-color: #000000;
+  color: #DC832E;
+}
+.nav a {
+  color: #DC832E;
 }
 
 .container-fluid {
@@ -56,6 +59,7 @@ body {
   background-repeat: no-repeat;
 }
 .container-fluid #boardContainer1 .board-tile h2, .container-fluid #boardContainer2 .board-tile h2, .container-fluid #boardContainer3 .board-tile h2, .container-fluid #boardContainer4 .board-tile h2, .container-fluid #boardContainer5 .board-tile h2 {
+  color: #ffffff;
   text-align: center;
   line-height: 100px;
 }
