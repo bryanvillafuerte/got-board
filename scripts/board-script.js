@@ -177,84 +177,71 @@ const saveBoardNumber = function(boardNumber, current) {
     current ? curr() : prev();
 };
 
-const onMoveCharacterToken = function(dice) {
-    const currentBoardNumber = parseInt(LocalStorage.get(StorageKeys.CURRENT_BOARD_NUMBER));
-    const character = LocalStorage.get(StorageKeys.CHARACTER);
-    let tmpMove = dice + currentBoardNumber;
-
-    toMove = tmpMove >= 30 ? 30 : tmpMove;
-
+const applyRenderingValues = function(character, currentBoardNumber, toMove) {
     // save current
     saveBoardNumber(toMove, true);
     // save previous
     saveBoardNumber(currentBoardNumber, false);
     // execute move
     moveCharacterToken(character, currentBoardNumber, toMove);
+};
 
-    if (tmpMove === 5) {
-        setTimeout(function () {
-            alert('Lord Walder Frey has lured you to a wedding where he massacred a lot of men as revenge against Kind Rob Stark for breaking the pact between their houses. You managed to escape this deadly fate. Move back 3 spaces.');
-            return;
-        }, 200);
+const applyRulesEngine = function (toMove) {
+    return new Promise((resolve, reject) => {
+        let message = '';
+        if (toMove === 5) {
+            message = 'Lord Walder Frey has lured you to a wedding where he massacred a lot of men as revenge against Kind Rob Stark for breaking the pact between their houses. You managed to escape this deadly fate. Move back 3 spaces.';
+            resolve([3, message]);
+        } else if (toMove === 12) {
+                message = 'Some of the wildlings managed to climb over the wall and venture into the land of the seven kingdoms. You were caught off guard and had to flee your post on the wall. Move back 2 spaces.';
+                resolve([2, message]);
+        } else if (toMove === 15) {
+                message = 'On your way to Highgarden, you were ambushed by the Dothraki horde. They are very vicious and barbaric. Having no other choice, you decided to fall back and regroup. Move back 4 spaces.';
+                resolve([4, message]);
 
-        moveBack = tmpMove - 3;
+        } else if (toMove === 20) {
+                message = 'The Night King has already raised his army of white walkers and attacked the village of Hardhome. Through a very desperate effort, you were able to get a hold of a boat and save yourself from being turned into a white walker. Move back 6 spaces.';
+                resolve([6, message]);
+        } else if (toMove === 27) {
+                message = 'As you make your final approach to the iron throne, your enemies’ last attempt to thwart your plans came to you with a loud bang. A huge explosion blew you away and all you can see are green flames surrounding you. You have failed to take over King’s Landing. Move back to start.';
+                resolve([26, message]);
+        }else {
+            resolve([0, '']);
+        }
+    });
+};
 
-        saveBoardNumber(moveBack, true);
-        saveBoardNumber(currentBoardNumber, false);
-        moveCharacterToken(character, currentBoardNumber, moveBack);
-        
-    } else if (tmpMove === 12) {
-        setTimeout(function () {
-            alert('Some of the wildlings managed to climb over the wall and venture into the land of the seven kingdoms. You were caught off guard and had to flee your post on the wall. Move back 2 spaces.');
-            return;
-        }, 200);
+const onMoveCharacterToken = async function(dice) {
+    const currentBoardNumber = parseInt(LocalStorage.get(StorageKeys.CURRENT_BOARD_NUMBER));
+    const character = LocalStorage.get(StorageKeys.CHARACTER);
+    let tmpMove = dice + currentBoardNumber;
 
-        moveBack = tmpMove - 2;
-
-        saveBoardNumber(moveBack, true);
-        saveBoardNumber(currentBoardNumber, false);
-        moveCharacterToken(character, currentBoardNumber, moveBack);
-
-    } else if (tmpMove === 15) {
-        setTimeout(function () {
-            alert('On your way to Highgarden, you were ambushed by the Dothraki horde. They are very vicious and barbaric. Having no other choice, you decided to fall back and regroup. Move back 4 spaces.');
-            return;
-        }, 200);
-
-        moveBack = tmpMove - 4;
-
-        saveBoardNumber(moveBack, true);
-        saveBoardNumber(currentBoardNumber, false);
-        moveCharacterToken(character, currentBoardNumber, moveBack);
-
-    } else if (tmpMove === 20) {
-        setTimeout(function () {
-            alert('The Night King has already raised his army of white walkers and attacked the village of Hardhome. Through a very desperate effort, you were able to get a hold of a boat and save yourself from being turned into a white walker. Move back 6 spaces.');
-            return;
-        }, 200);
-
-        moveBack = tmpMove - 6;
-
-        saveBoardNumber(moveBack, true);
-        saveBoardNumber(currentBoardNumber, false);
-        moveCharacterToken(character, currentBoardNumber, moveBack);
-
-    } else if (tmpMove === 27) {
-        setTimeout(function () {
-            alert('As you make your final approach to the iron throne, your enemies’ last attempt to thwart your plans came to you with a loud bang. A huge explosion blew you away and all you can see are green flames surrounding you. You have failed to take over King’s Landing. Move back to start.');
-            return;
-        }, 200);
-
-        moveBack = tmpMove - 26;
-
-        saveBoardNumber(moveBack, true);
-        saveBoardNumber(currentBoardNumber, false);
-        moveCharacterToken(character, currentBoardNumber, moveBack);
+    if(tmpMove === 30) {
+        alert('JACKPOT');
+        location.href = 'final.html';
+        return;
     }
+
+    const toMove = tmpMove > 30 ? [currentBoardNumber, getNumberOfStepsBack(currentBoardNumber, dice)] : [currentBoardNumber, tmpMove];
+    applyRenderingValues(character, toMove[0], toMove[1]);
+
+    const backMove = await applyRulesEngine(toMove[1]);
+    if (backMove[0]) {
+        alert(backMove[1]);
+        pubSub.publish(ActionEvents.BACK_MOVE, [character, toMove[1], toMove[1] - backMove[0]]);
+        // applyRenderingValues(character, toMove[1], toMove[1] - backMove[0]);
+    }
+
 };
 
 const addListeners = function() {
     pubSub.subscribe(ActionEvents.DICE_ROLL, onMoveCharacterToken);
+    pubSub.subscribe(ActionEvents.BACK_MOVE, (backMove) => {
+        setTimeout(() => {
+            console.log('backMove data', backMove);
+            applyRenderingValues(backMove[0], backMove[1], backMove[2]);
+        }, 1000);
+    })
 };
 
 const initValues = function() {
