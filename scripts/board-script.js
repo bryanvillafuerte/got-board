@@ -227,9 +227,10 @@ const onMoveCharacterToken = async function(dice) {
 
     const backMove = await applyRulesEngine(toMove[1]);
     if (backMove[0]) {
-        alert(backMove[1]);
+        setTimeout(() => {
+            alert(backMove[1]);
+        }, 500);
         pubSub.publish(ActionEvents.BACK_MOVE, [character, toMove[1], toMove[1] - backMove[0]]);
-        // applyRenderingValues(character, toMove[1], toMove[1] - backMove[0]);
     }
 
 };
@@ -238,9 +239,8 @@ const addListeners = function() {
     pubSub.subscribe(ActionEvents.DICE_ROLL, onMoveCharacterToken);
     pubSub.subscribe(ActionEvents.BACK_MOVE, (backMove) => {
         setTimeout(() => {
-            console.log('backMove data', backMove);
             applyRenderingValues(backMove[0], backMove[1], backMove[2]);
-        }, 1000);
+        }, 500);
     })
 };
 
