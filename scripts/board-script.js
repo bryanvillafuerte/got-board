@@ -197,28 +197,59 @@ const onMoveCharacterToken = function(dice) {
             return;
         }, 200);
 
-        toMove = tmpMove - 3;
+        moveBack = tmpMove - 3;
+
+        saveBoardNumber(moveBack, true);
+        saveBoardNumber(currentBoardNumber, false);
+        moveCharacterToken(character, currentBoardNumber, moveBack);
         
     } else if (tmpMove === 12) {
         setTimeout(function () {
             alert('Some of the wildlings managed to climb over the wall and venture into the land of the seven kingdoms. You were caught off guard and had to flee your post on the wall. Move back 2 spaces.');
             return;
         }, 200);
+
+        moveBack = tmpMove - 2;
+
+        saveBoardNumber(moveBack, true);
+        saveBoardNumber(currentBoardNumber, false);
+        moveCharacterToken(character, currentBoardNumber, moveBack);
+
     } else if (tmpMove === 15) {
         setTimeout(function () {
             alert('On your way to Highgarden, you were ambushed by the Dothraki horde. They are very vicious and barbaric. Having no other choice, you decided to fall back and regroup. Move back 4 spaces.');
             return;
         }, 200);
+
+        moveBack = tmpMove - 4;
+
+        saveBoardNumber(moveBack, true);
+        saveBoardNumber(currentBoardNumber, false);
+        moveCharacterToken(character, currentBoardNumber, moveBack);
+
     } else if (tmpMove === 20) {
         setTimeout(function () {
             alert('The Night King has already raised his army of white walkers and attacked the village of Hardhome. Through a very desperate effort, you were able to get a hold of a boat and save yourself from being turned into a white walker. Move back 6 spaces.');
             return;
         }, 200);
+
+        moveBack = tmpMove - 6;
+
+        saveBoardNumber(moveBack, true);
+        saveBoardNumber(currentBoardNumber, false);
+        moveCharacterToken(character, currentBoardNumber, moveBack);
+
     } else if (tmpMove === 27) {
         setTimeout(function () {
             alert('As you make your final approach to the iron throne, your enemies’ last attempt to thwart your plans came to you with a loud bang. A huge explosion blew you away and all you can see are green flames surrounding you. You have failed to take over King’s Landing. Move back to start.');
             return;
         }, 200);
+
+        moveBack = tmpMove - 26;
+
+        saveBoardNumber(moveBack, true);
+        saveBoardNumber(currentBoardNumber, false);
+        moveCharacterToken(character, currentBoardNumber, moveBack);
     }
 };
 
