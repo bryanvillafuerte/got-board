@@ -190,6 +190,36 @@ const onMoveCharacterToken = function(dice) {
     saveBoardNumber(currentBoardNumber, false);
     // execute move
     moveCharacterToken(character, currentBoardNumber, toMove);
+
+    if (tmpMove === 5) {
+        setTimeout(function () {
+            alert('Lord Walder Frey has lured you to a wedding where he massacred a lot of men as revenge against Kind Rob Stark for breaking the pact between their houses. You managed to escape this deadly fate. Move back 3 spaces.');
+            return;
+        }, 200);
+
+        toMove = tmpMove - 3;
+        
+    } else if (tmpMove === 12) {
+        setTimeout(function () {
+            alert('Some of the wildlings managed to climb over the wall and venture into the land of the seven kingdoms. You were caught off guard and had to flee your post on the wall. Move back 2 spaces.');
+            return;
+        }, 200);
+    } else if (tmpMove === 15) {
+        setTimeout(function () {
+            alert('On your way to Highgarden, you were ambushed by the Dothraki horde. They are very vicious and barbaric. Having no other choice, you decided to fall back and regroup. Move back 4 spaces.');
+            return;
+        }, 200);
+    } else if (tmpMove === 20) {
+        setTimeout(function () {
+            alert('The Night King has already raised his army of white walkers and attacked the village of Hardhome. Through a very desperate effort, you were able to get a hold of a boat and save yourself from being turned into a white walker. Move back 6 spaces.');
+            return;
+        }, 200);
+    } else if (tmpMove === 27) {
+        setTimeout(function () {
+            alert('As you make your final approach to the iron throne, your enemies’ last attempt to thwart your plans came to you with a loud bang. A huge explosion blew you away and all you can see are green flames surrounding you. You have failed to take over King’s Landing. Move back to start.');
+            return;
+        }, 200);
+    }
 };
 
 const addListeners = function() {

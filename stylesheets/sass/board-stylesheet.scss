@@ -69,6 +69,30 @@ body {
             background-size: contain;
             background-repeat: no-repeat;
         }
+
+        #board-tile-5 {
+            background-image: url(/assets/trap01.png);
+        }
+
+        #board-tile-12 {
+            background-image: url(/assets/trap02.png);
+        }
+
+        #board-tile-15 {
+            background-image: url(/assets/trap03.png);
+        }
+
+        #board-tile-20 {
+            background-image: url(/assets/trap04.png);
+        }
+
+        #board-tile-27 {
+            background-image: url(/assets/trap05.png);
+        }
+
+        #board-tile-30 {
+            background-image: url(/assets/iron-throne-30.png);
+        }
     }
 
     #characterToken {
@@ -126,4 +150,5 @@ footer {
     padding-bottom: 10px;
     text-align: center;
     background-color: $black;
+    color: $lightText;
 }

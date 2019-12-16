@@ -77,6 +77,24 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.container-fluid #boardContainer1 #board-tile-5, .container-fluid #boardContainer2 #board-tile-5, .container-fluid #boardContainer3 #board-tile-5, .container-fluid #boardContainer4 #board-tile-5, .container-fluid #boardContainer5 #board-tile-5 {
+  background-image: url(/assets/trap01.png);
+}
+.container-fluid #boardContainer1 #board-tile-12, .container-fluid #boardContainer2 #board-tile-12, .container-fluid #boardContainer3 #board-tile-12, .container-fluid #boardContainer4 #board-tile-12, .container-fluid #boardContainer5 #board-tile-12 {
+  background-image: url(/assets/trap02.png);
+}
+.container-fluid #boardContainer1 #board-tile-15, .container-fluid #boardContainer2 #board-tile-15, .container-fluid #boardContainer3 #board-tile-15, .container-fluid #boardContainer4 #board-tile-15, .container-fluid #boardContainer5 #board-tile-15 {
+  background-image: url(/assets/trap03.png);
+}
+.container-fluid #boardContainer1 #board-tile-20, .container-fluid #boardContainer2 #board-tile-20, .container-fluid #boardContainer3 #board-tile-20, .container-fluid #boardContainer4 #board-tile-20, .container-fluid #boardContainer5 #board-tile-20 {
+  background-image: url(/assets/trap04.png);
+}
+.container-fluid #boardContainer1 #board-tile-27, .container-fluid #boardContainer2 #board-tile-27, .container-fluid #boardContainer3 #board-tile-27, .container-fluid #boardContainer4 #board-tile-27, .container-fluid #boardContainer5 #board-tile-27 {
+  background-image: url(/assets/trap05.png);
+}
+.container-fluid #boardContainer1 #board-tile-30, .container-fluid #boardContainer2 #board-tile-30, .container-fluid #boardContainer3 #board-tile-30, .container-fluid #boardContainer4 #board-tile-30, .container-fluid #boardContainer5 #board-tile-30 {
+  background-image: url(/assets/iron-throne-30.png);
+}
 .container-fluid #characterToken {
   display: flex;
   align-items: center;
@@ -122,6 +140,7 @@ footer {
   padding-bottom: 10px;
   text-align: center;
   background-color: #000000;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=board-stylesheet.css.map */
