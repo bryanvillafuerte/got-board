@@ -165,7 +165,6 @@ button.onclick = function() {
     var result = dice1.roll();
     pubSub.publish(ActionEvents.DICE_ROLL, result);
     printNumber(result);
-    printNumber(result);
 
     var alert = document.getElementById("diceAlert")
     alert.textContent = "You have rolled a " + result + "!";
