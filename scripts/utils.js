@@ -118,6 +118,14 @@ const findCharacter = function(name, characterArray) {
   })
 };
 
+const createStepArray = function(pStart, length) {
+    const array = [];
+    const start = pStart ? pStart : 1;
+    for(let i = start; i <= length; i++) {
+        array.push(i);
+    }
+    return array;
+};
 
 (function(){
     console.log('===== UTILS LOADED =====');

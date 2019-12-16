@@ -216,14 +216,16 @@ const onMoveCharacterToken = async function(dice) {
     const character = LocalStorage.get(StorageKeys.CHARACTER);
     let tmpMove = dice + currentBoardNumber;
 
+    const toMove = tmpMove > 30 ? [currentBoardNumber, getNumberOfStepsBack(currentBoardNumber, dice)] : [currentBoardNumber, tmpMove];
+    const steps = createStepArray(currentBoardNumber, tmpMove - currentBoardNumber);
+
+    applyRenderingValues(character, toMove[0], toMove[1]);
+
     if(tmpMove === 30) {
         alert('JACKPOT');
         location.href = 'final.html';
         return;
     }
-
-    const toMove = tmpMove > 30 ? [currentBoardNumber, getNumberOfStepsBack(currentBoardNumber, dice)] : [currentBoardNumber, tmpMove];
-    applyRenderingValues(character, toMove[0], toMove[1]);
 
     const backMove = await applyRulesEngine(toMove[1]);
     if (backMove[0]) {
