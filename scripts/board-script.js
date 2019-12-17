@@ -231,7 +231,7 @@ const onMoveCharacterToken = async function(dice) {
     if (backMove[0]) {
         setTimeout(() => {
             alert(backMove[1]);
-        }, 500);
+        }, 200);
         pubSub.publish(ActionEvents.BACK_MOVE, [character, toMove[1], toMove[1] - backMove[0]]);
     }
 
