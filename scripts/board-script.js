@@ -1,6 +1,7 @@
 /*
 GLOBAL VARS
  */
+const delayMilliSeconds = 600;
 const pubSub = PubSubInstance.getInstance();
 
 /* The following functions are used to create board tiles and number them from 1-30 */
@@ -217,11 +218,30 @@ const onMoveCharacterToken = async function(dice) {
     let tmpMove = dice + currentBoardNumber;
 
     const toMove = tmpMove > 30 ? [currentBoardNumber, getNumberOfStepsBack(currentBoardNumber, dice)] : [currentBoardNumber, tmpMove];
-    const steps = createStepArray(currentBoardNumber, tmpMove - currentBoardNumber);
+    const steps = createStepArray(currentBoardNumber, toMove[1]);
 
-    applyRenderingValues(character, toMove[0], toMove[1]);
+    if (steps.length > 2) {
+        let count = 0;
+        let delay = (steps.length - 1) * delayMilliSeconds;
+
+        const handle = setInterval(() => {
+            count += 1;
+            const cbn = steps[count] - 1;
+            // console.log(`count: ${count} cbn${cbn} step${steps[count]}`);
+            applyRenderingValues(character, cbn, steps[count]);
+            if (count >= steps.length - 1) {
+                clearInterval(handle)
+            }
+        }, delayMilliSeconds);
+
+        await sleepAsync(delay);
+    }else {
+        applyRenderingValues(character, toMove[0], toMove[1]);
+    }
+
 
     if(tmpMove === 30) {
+        await sleepAsync(500);
         alert('You have seized the Iron Throne!');
         location.href = 'final.html';
         return;
@@ -229,9 +249,8 @@ const onMoveCharacterToken = async function(dice) {
 
     const backMove = await applyRulesEngine(toMove[1]);
     if (backMove[0]) {
-        setTimeout(() => {
-            alert(backMove[1]);
-        }, 200);
+        await sleepAsync(500);
+        alert(backMove[1]);
         pubSub.publish(ActionEvents.BACK_MOVE, [character, toMove[1], toMove[1] - backMove[0]]);
     }
 
