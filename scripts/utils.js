@@ -118,13 +118,25 @@ const findCharacter = function(name, characterArray) {
   })
 };
 
-const createStepArray = function(pStart, length) {
+const createStepArray = function(pStart, pEnd) {
     const array = [];
     const start = pStart ? pStart : 1;
-    for(let i = start; i <= length; i++) {
+    for(let i = start; i <= pEnd; i++) {
         array.push(i);
     }
     return array;
+};
+
+const sleep = function(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+};
+
+const sleepAsync = function(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
 };
 
 (function(){
