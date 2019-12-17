@@ -222,7 +222,7 @@ const onMoveCharacterToken = async function(dice) {
     applyRenderingValues(character, toMove[0], toMove[1]);
 
     if(tmpMove === 30) {
-        alert('JACKPOT');
+        alert('You have seized the Iron Throne!');
         location.href = 'final.html';
         return;
     }

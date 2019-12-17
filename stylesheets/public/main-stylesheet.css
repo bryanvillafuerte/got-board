@@ -66,11 +66,6 @@ body {
   margin-bottom: 30px;
 }
 
-.container--house {
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
 .container-fluid {
   background-color: #212529;
   background-image: url(/assets/night-king-background.png);
